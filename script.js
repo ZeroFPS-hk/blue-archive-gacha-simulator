@@ -71,7 +71,7 @@ function displayMessage(){
 
 function loadExplanation(){
     explanationOneStar.textContent = `For each Blue Archive gacha roll, one star rate is ${ONE_STAR_RATE} and it gives ${ONE_STAR_ELEPHS} eleph.`
-    explanationTwoStar.textContent = `Two star rate is ${TWO_STAR_RATE} and it gives ${TWO_STAR_ELEPHS} elephs`;
+    explanationTwoStar.textContent = `Two star rate is ${TWO_STAR_RATE} and it gives ${TWO_STAR_ELEPHS} elephs.`;
     explanationThreeStar.textContent = `Three star rate is ${THREE_STAR_RATE} and it gives ${THREE_STAR_ELEPHS} elephs. 
     During fes banners, the three star rate is ${THREE_STAR_RATE + FES_RATE_MODIFIER}. The fes difference is subtracted from one star rate.`
     explanationMisc.textContent = `When you do 10 rolls, the 10th roll must be two stars or higher rarity. Enter the number of rolls you would like to simulate (recommend it to be a multiple of 10, individual rolls are ignored).`

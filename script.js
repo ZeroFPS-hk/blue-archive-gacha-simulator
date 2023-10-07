@@ -15,6 +15,21 @@ const meanElephsTenPullFes = (ONE_STAR_ELEPHS * (ONE_STAR_RATE - FES_RATE_MODIFI
 let simulationDataElephs = [];
 let isFes = false;
 
+const explanationOneStar = document.querySelector("#oneStar");
+const explanationTwoStar = document.querySelector("#twoStar");
+const explanationThreeStar = document.querySelector("#threeStar");
+const explanationMisc = document.querySelector("#misc");
+const gachaInput = document.querySelector("#gachaInput");
+const fesToggleButton = document.querySelector("#fesToggle");
+const simulationButton = document.querySelector("#simulate");
+const message = document.querySelector("#message");
+
+window.onload = ()=> loadExplanation();
+fesToggleButton.addEventListener("click", toggleFes);
+simulationButton.addEventListener("click", displayMessage);
+
+
+
 function calculateStandardDeviation(numberOfPulls){
     generateDataSet(numberOfPulls);
     const meanElephs = isFes? meanElephsTenPullFes : meanElephsTenPull;
@@ -42,4 +57,22 @@ function generateTenPullElephs(){
 
     sumElephs += Math.random() <= THREE_STAR_RATE + fesModifier? THREE_STAR_ELEPHS : TWO_STAR_ELEPHS;
     return sumElephs;
+}
+
+function toggleFes(){
+    isFes = !isFes;
+    fesToggleButton.textContent = isFes? "Fes on" : "Fes off";
+}
+
+function displayMessage(){
+    const gachaStandadDeviation = calculateStandardDeviation(gachaInput.value);
+    message.textContent = `Simulated ${gachaInput.value} rolls, standard deviation is ${gachaStandadDeviation}.`
+}
+
+function loadExplanation(){
+    explanationOneStar.textContent = `For each Blue Archive gacha roll, one star rate is ${ONE_STAR_RATE} and it gives ${ONE_STAR_ELEPHS} eleph.`
+    explanationTwoStar.textContent = `Two star rate is ${TWO_STAR_RATE} and it gives ${TWO_STAR_ELEPHS} elephs`;
+    explanationThreeStar.textContent = `Three star rate is ${THREE_STAR_RATE} and it gives ${THREE_STAR_ELEPHS} elephs. 
+    During fes banners, the three star rate is ${THREE_STAR_RATE + FES_RATE_MODIFIER}. The fes difference is subtracted from one star rate.`
+    explanationMisc.textContent = `When you do 10 rolls, the 10th roll must be two stars or higher rarity. Enter the number of rolls you would like to simulate (recommend it to be a multiple of 10, individual rolls are ignored).`
 }

@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blue Archive gacha simulator</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <div class="explanation" id="oneStar"></div>
+    <div class="explanation" id="twoStar"></div>
+    <div class="explanation" id="threeStar"></div>
+    <div class="explanation" id="misc"></div>
+    <input type="number" min="0" id="gachaInput">
+    <button id="fesToggle">Fes off</button>
+    <button id="simulate">Calculate results</button>
+    <div id="message"></div>
 </body>
 </html>

@@ -65,6 +65,10 @@ function toggleFes(){
 }
 
 function displayMessage(){
+    if(gachaInput.value < gachaInput.min || gachaInput.value > gachaInput.max){
+        message.textContent = `Please enter an integer between ${gachaInput.min} and ${gachaInput.max}.`;
+        return;
+    }
     const gachaStandadDeviation = calculateStandardDeviation(gachaInput.value);
     message.textContent = `Simulated ${gachaInput.value} rolls, standard deviation is ${gachaStandadDeviation}.`
 }
